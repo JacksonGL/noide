@@ -68,10 +68,20 @@ Build
 To build `noide` you will need browserify and the less compiler installed:
 
 ```
-npm install emitter-component
-npm install js-beautify
-npm install browserify
+npm install ncp
 npm install less
+npm install vash
+npm install rimraf
+npm install express
+npm install morgan
+npm install chokidar
+npm install socket.io
+npm install browserify
+npm install js-beautify
+npm install body-parser
+npm install cookie-parser
+npm install static-favicon
+npm install emitter-component
 npm run build
 ```
 
