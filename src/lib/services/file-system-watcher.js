@@ -2,7 +2,10 @@ var chokidar = require('chokidar');
 var p = require('path');
 var FileSystemObject = require('../../shared/file-system-object');
 
+var path = require('path');
 var root = process.cwd();
+if (process.argv[2])
+  root = path.resolve(process.argv[2]);
 
 var watcher = chokidar.watch(root, {
   ignored: function(path, stat) {
@@ -13,6 +16,8 @@ var watcher = chokidar.watch(root, {
   },
   ignoreInitial: true
 });
+
+var filter = require('./filter.js');
 
 module.exports = {
   watcher: watcher,
@@ -30,7 +35,8 @@ module.exports = {
         var path = p.join(dirpath, name);
         if (!watched[path]) {
           // add file
-          items[path] = new FileSystemObject(path, false);
+          if(filter.isRetain(name))
+            items[path] = new FileSystemObject(path, false);
         }
       }
     }

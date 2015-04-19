@@ -37,6 +37,7 @@ maxAge: 300000
 }));
 app.use(middleware.cacheHeader);
 
+
 /*
  * Register routes
  */
