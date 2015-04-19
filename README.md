@@ -67,11 +67,13 @@ Build
 
 To build `noide` you will need browserify and the less compiler installed:
 
-`npm i browserify -g`
-
-`npm i less -g`
-
-Then it's `npm run build` in the directory you installed `noide` to.
+```
+npm install emitter-component
+npm install js-beautify
+npm install browserify
+npm install less
+npm run build
+```
 
 This will compile the `js` and `less` files.
 You will need to do this if you want to change the editors settings.
