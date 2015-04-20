@@ -151,7 +151,7 @@ app.controller('AppCtrl', ['$scope', '$modal', 'dialog',
             for (var i = 0; i < markers.length; i++) {
               editor.getSession()._session.removeMarker(markers[i]);
             }
-            editor.getSession()._session.clearAnnotations();
+            // editor.getSession()._session.clearAnnotations();
             annotations = [];
             editor.getSession()._session.setOption("useWorker", false);
 
