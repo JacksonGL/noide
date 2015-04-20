@@ -18,9 +18,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'vash');
 
 if (process.env.NODE_ENV === 'production') {
-  app.enable('view cache');
+	app.enable('view cache');
 } else {
-  app.disable('view cache');
+	app.disable('view cache');
 }
 app.disable('x-powered-by');
 app.enable('verbose errors');
@@ -33,7 +33,7 @@ app.use(httpLogger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(express.static(path.join(__dirname, 'public'), {
-maxAge: 300000
+	maxAge: 300000
 }));
 app.use(middleware.cacheHeader);
 
