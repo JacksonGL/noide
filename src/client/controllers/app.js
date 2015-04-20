@@ -153,7 +153,7 @@ app.controller('AppCtrl', ['$scope', '$modal', 'dialog',
             }
             editor.getSession()._session.clearAnnotations();
             annotations = [];
-            // editor.getSession()._session.setOption("useWorker", false);
+            editor.getSession()._session.setOption("useWorker", false);
 
             for (var i = 0; i < warnings.length; i++) {
               var locationString = warnings[i].locationString;
@@ -173,6 +173,7 @@ app.controller('AppCtrl', ['$scope', '$modal', 'dialog',
                   if(warnings[i].debugInfo) {
                     textMsg += '\n' + JSON.stringify(warnings[i].debugInfo, 0, 2);
                   }
+                  // add warning message as annotation into the code
                   annotations.push({
                     row: startLine - 1,
                     column: startCol - 1,
@@ -180,7 +181,6 @@ app.controller('AppCtrl', ['$scope', '$modal', 'dialog',
                     type: "warning"
                   });
                   editor.getSession()._session.setAnnotations(annotations);
-                  // var marker = editor.getSession().addMarker(range,"ace_selected_word", "text");
                 }
               }
             }
